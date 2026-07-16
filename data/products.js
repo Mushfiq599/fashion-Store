@@ -1,0 +1,208 @@
+export const products = [
+  {
+    id: 1,
+    name: "Classic Cotton Panjabi",
+    category: "Panjabi",
+    price: 1490,
+    images: [
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800",
+      "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800",
+    ],
+    rating: 4.5,
+    colors: ["White", "Navy"],
+    sizes: ["M", "L", "XL"],
+    inStock: true,
+    featured: true,
+    description:
+      "Breathable cotton panjabi with a tailored fit. Works equally well for daily wear and festive occasions.",
+  },
+  {
+    id: 2,
+    name: "Slim Fit Oxford Shirt",
+    category: "Shirt",
+    price: 1290,
+    images: [
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800",
+      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=800",
+    ],
+    rating: 4.2,
+    colors: ["Sky Blue", "White", "Charcoal"],
+    sizes: ["S", "M", "L", "XL"],
+    inStock: true,
+    featured: true,
+    description:
+      "A slim-cut oxford shirt made from soft cotton twill. Pairs well with both formal trousers and denim.",
+  },
+  {
+    id: 3,
+    name: "Everyday Graphic Tee",
+    category: "T-Shirt",
+    price: 590,
+    images: [
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800",
+    ],
+    rating: 4.0,
+    colors: ["Black", "White", "Olive"],
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    inStock: true,
+    featured: true,
+    description:
+      "100% ringspun cotton tee with a relaxed fit and a hand-drawn graphic print on the chest.",
+  },
+  {
+    id: 4,
+    name: "Handloom Cotton Saree",
+    category: "Saree",
+    price: 2450,
+    images: [
+      "https://images.unsplash.com/photo-1610189844777-6fc07cfeceb5?w=800",
+      "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=800",
+    ],
+    rating: 4.8,
+    colors: ["Maroon", "Teal"],
+    sizes: ["Free Size"],
+    inStock: true,
+    featured: true,
+    description:
+      "Handwoven cotton saree with a contrast border, finished with a lightweight drape for all-day comfort.",
+  },
+  {
+    id: 5,
+    name: "Embroidered Kurti",
+    category: "Kurti",
+    price: 1150,
+    images: [
+      "https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=800",
+      "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800",
+    ],
+    rating: 4.3,
+    colors: ["Mustard", "Wine"],
+    sizes: ["S", "M", "L"],
+    inStock: true,
+    featured: false,
+    description:
+      "A-line kurti with thread embroidery at the neckline. Cut from a soft rayon blend for daily wear.",
+  },
+  {
+    id: 6,
+    name: "Tapered Chino Pants",
+    category: "Pants",
+    price: 1690,
+    images: [
+      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800",
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800",
+    ],
+    rating: 4.1,
+    colors: ["Khaki", "Black", "Navy"],
+    sizes: ["30", "32", "34", "36"],
+    inStock: true,
+    featured: false,
+    description:
+      "Tapered chinos with a bit of stretch for movement. A wardrobe staple that goes with almost anything.",
+  },
+  {
+    id: 7,
+    name: "Linen Blend Panjabi",
+    category: "Panjabi",
+    price: 1850,
+    images: [
+      "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800",
+      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800",
+    ],
+    rating: 4.6,
+    colors: ["Beige", "Grey"],
+    sizes: ["M", "L", "XL", "XXL"],
+    inStock: false,
+    featured: false,
+    description:
+      "Linen-cotton blend panjabi designed to stay cool in warm weather without losing structure.",
+  },
+  {
+    id: 8,
+    name: "Denim Casual Shirt",
+    category: "Shirt",
+    price: 1390,
+    images: [
+      "https://images.unsplash.com/photo-1602810318660-d2c46b750f88?w=800",
+      "https://images.unsplash.com/photo-1608228088998-57828365d486?w=800",
+    ],
+    rating: 4.0,
+    colors: ["Light Wash", "Dark Wash"],
+    sizes: ["S", "M", "L", "XL"],
+    inStock: true,
+    featured: false,
+    description:
+      "Washed denim shirt with a relaxed fit, built to soften and fade naturally with wear.",
+  },
+  {
+    id: 9,
+    name: "Printed Oversized Tee",
+    category: "T-Shirt",
+    price: 690,
+    images: [
+      "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=800",
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=800",
+    ],
+    rating: 3.9,
+    colors: ["Black", "Cream"],
+    sizes: ["M", "L", "XL"],
+    inStock: true,
+    featured: false,
+    description:
+      "Oversized silhouette tee with a front print, cut from heavyweight cotton jersey.",
+  },
+  {
+    id: 10,
+    name: "Silk Blend Saree",
+    category: "Saree",
+    price: 3200,
+    images: [
+      "https://images.unsplash.com/photo-1610030181087-540f6c0d8e93?w=800",
+      "https://images.unsplash.com/photo-1594736797933-d0a9ba7fb4b7?w=800",
+    ],
+    rating: 4.7,
+    colors: ["Emerald", "Royal Blue"],
+    sizes: ["Free Size"],
+    inStock: true,
+    featured: false,
+    description:
+      "Silk blend saree with a woven zari border, suited for festive and formal occasions.",
+  },
+  {
+    id: 11,
+    name: "Straight Fit Kurti",
+    category: "Kurti",
+    price: 990,
+    images: [
+      "https://images.unsplash.com/photo-1610177498827-9a06e298e8f8?w=800",
+      "https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?w=800",
+    ],
+    rating: 4.2,
+    colors: ["Rust", "Forest Green"],
+    sizes: ["S", "M", "L", "XL"],
+    inStock: true,
+    featured: false,
+    description:
+      "Straight-cut kurti in a breathable cotton blend, simple enough for everyday styling.",
+  },
+  {
+    id: 12,
+    name: "Relaxed Fit Trousers",
+    category: "Pants",
+    price: 1450,
+    images: [
+      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=800",
+      "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800",
+    ],
+    rating: 3.8,
+    colors: ["Stone", "Black"],
+    sizes: ["30", "32", "34"],
+    inStock: true,
+    featured: false,
+    description:
+      "Relaxed fit trousers with a soft drape, made for comfort without giving up a clean look.",
+  },
+];
+
+export const categories = [...new Set(products.map((p) => p.category))];
