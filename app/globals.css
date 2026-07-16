@@ -25,6 +25,9 @@ button {
   .product-details-grid {
     grid-template-columns: 1fr !important;
   }
+  .cart-grid {
+    grid-template-columns: 1fr !important;
+  }
   .mobile-menu-btn {
     display: block !important;
   }
