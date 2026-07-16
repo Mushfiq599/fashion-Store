@@ -22,6 +22,9 @@ button {
   .desktop-nav {
     display: none !important;
   }
+  .product-details-grid {
+    grid-template-columns: 1fr !important;
+  }
   .mobile-menu-btn {
     display: block !important;
   }
