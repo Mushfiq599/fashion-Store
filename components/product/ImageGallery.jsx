@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ImageGallery({ images, name }) {
   const [activeImage, setActiveImage] = useState(images[0]);
@@ -9,6 +10,7 @@ export default function ImageGallery({ images, name }) {
     <div>
       <div
         style={{
+          position: "relative",
           borderRadius: "10px",
           overflow: "hidden",
           background: "#f5f5f5",
@@ -16,11 +18,24 @@ export default function ImageGallery({ images, name }) {
           marginBottom: "12px",
         }}
       >
-        <img
-          src={activeImage}
-          alt={name}
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={activeImage}
+            src={activeImage}
+            alt={name}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </AnimatePresence>
       </div>
 
       {images.length > 1 && (
