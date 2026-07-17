@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import CartItem from "@/components/cart/CartItem";
 import CartSummary from "@/components/cart/CartSummary";
@@ -32,9 +33,11 @@ export default function CartPage() {
         className="cart-grid"
       >
         <div>
-          {cart.map((item) => (
-            <CartItem key={item.cartId} item={item} />
-          ))}
+          <AnimatePresence initial={false}>
+            {cart.map((item) => (
+              <CartItem key={item.cartId} item={item} />
+            ))}
+          </AnimatePresence>
         </div>
 
         <CartSummary total={total} />

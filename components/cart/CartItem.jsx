@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { FiMinus, FiPlus, FiTrash2 } from "react-icons/fi";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/format";
@@ -8,12 +9,18 @@ export default function CartItem({ item }) {
   const { updateQty, removeItem } = useCart();
 
   return (
-    <div
+    <motion.div
+      layout
+      initial={{ opacity: 0, height: 0 }}
+      animate={{ opacity: 1, height: "auto" }}
+      exit={{ opacity: 0, height: 0, marginTop: 0, marginBottom: 0 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
       style={{
         display: "flex",
         gap: "16px",
         padding: "20px 0",
         borderBottom: "1px solid #eee",
+        overflow: "hidden",
       }}
     >
       <div
@@ -104,7 +111,7 @@ export default function CartItem({ item }) {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

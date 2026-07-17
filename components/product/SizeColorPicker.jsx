@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function SizeColorPicker({
   sizes,
   colors,
@@ -16,8 +18,9 @@ export default function SizeColorPicker({
         </p>
         <div style={{ display: "flex", gap: "10px" }}>
           {colors.map((color) => (
-            <button
+            <motion.button
               key={color}
+              whileTap={{ scale: 0.9 }}
               onClick={() => onColorChange(color)}
               style={{
                 padding: "8px 16px",
@@ -31,7 +34,7 @@ export default function SizeColorPicker({
               }}
             >
               {color}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
@@ -42,8 +45,9 @@ export default function SizeColorPicker({
         </p>
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
           {sizes.map((size) => (
-            <button
+            <motion.button
               key={size}
+              whileTap={{ scale: 0.9 }}
               onClick={() => onSizeChange(size)}
               style={{
                 width: "44px",
@@ -58,7 +62,7 @@ export default function SizeColorPicker({
               }}
             >
               {size}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>

@@ -2,12 +2,32 @@
 
 import Link from "next/link";
 import { FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const { itemCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [bump, setBump] = useState(false);
+  const prevCount = useRef(itemCount);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (itemCount > prevCount.current) {
+      setBump(true);
+      const timer = setTimeout(() => setBump(false), 350);
+      prevCount.current = itemCount;
+      return () => clearTimeout(timer);
+    }
+    prevCount.current = itemCount;
+  }, [itemCount]);
 
   return (
     <header
@@ -17,16 +37,19 @@ export default function Navbar() {
         zIndex: 50,
         background: "#fff",
         borderBottom: "1px solid #eee",
+        boxShadow: scrolled ? "0 2px 10px rgba(0,0,0,0.06)" : "none",
+        transition: "box-shadow 0.25s ease",
       }}
     >
       <div
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "16px 20px",
+          padding: scrolled ? "10px 20px" : "16px 20px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          transition: "padding 0.25s ease",
         }}
       >
         <Link
@@ -54,7 +77,12 @@ export default function Navbar() {
             Shop
           </Link>
           <Link href="/cart" style={{ ...navLinkStyle, position: "relative" }}>
-            <FiShoppingBag size={20} />
+            <motion.div
+              animate={bump ? { scale: [1, 1.3, 1] } : { scale: 1 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <FiShoppingBag size={20} />
+            </motion.div>
             {itemCount > 0 && (
               <span
                 style={{

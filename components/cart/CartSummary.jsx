@@ -1,6 +1,8 @@
+// components/cart/CartSummary.jsx
 "use client";
 
 import { formatPrice } from "@/lib/format";
+import AnimatedNumber from "@/components/ui/AnimatedNumber";
 
 export default function CartSummary({ total }) {
   const shipping = total > 0 ? 60 : 0;
@@ -21,7 +23,9 @@ export default function CartSummary({ total }) {
 
       <div style={rowStyle}>
         <span style={labelStyle}>Subtotal</span>
-        <span>{formatPrice(total)}</span>
+        <span>
+          <AnimatedNumber value={total} formatter={formatPrice} />
+        </span>
       </div>
 
       <div style={rowStyle}>
@@ -40,7 +44,9 @@ export default function CartSummary({ total }) {
         }}
       >
         <span>Total</span>
-        <span>{formatPrice(grandTotal)}</span>
+        <span>
+          <AnimatedNumber value={grandTotal} formatter={formatPrice} />
+        </span>
       </div>
 
       <button
