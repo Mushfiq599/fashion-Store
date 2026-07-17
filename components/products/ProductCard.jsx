@@ -7,6 +7,7 @@ export default function ProductCard({ product }) {
   return (
     <Link
       href={`/products/${product.id}`}
+      className="product-card"
       style={{
         textDecoration: "none",
         color: "inherit",
@@ -25,15 +26,15 @@ export default function ProductCard({ product }) {
         <img
           src={product.images[0]}
           alt={product.name}
+          className="product-card-image"
           style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            transition: "transform 0.4s ease",
           }}
-          onMouseEnter={(e) => (e.target.style.transform = "scale(1.04)")}
-          onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
         />
+
+        <span className="product-card-accent" />
 
         {!product.inStock && (
           <span
@@ -46,6 +47,7 @@ export default function ProductCard({ product }) {
               fontSize: "11px",
               padding: "4px 10px",
               borderRadius: "20px",
+              zIndex: 2,
             }}
           >
             Out of Stock
@@ -57,7 +59,9 @@ export default function ProductCard({ product }) {
         <p style={{ fontSize: "12px", color: "#888", marginBottom: "2px" }}>
           {product.category}
         </p>
-        <h3 style={{ fontSize: "15px", fontWeight: 500 }}>{product.name}</h3>
+        <h3 className="product-card-title" style={{ fontSize: "15px", fontWeight: 500 }}>
+          {product.name}
+        </h3>
         <p style={{ fontSize: "15px", fontWeight: 600, marginTop: "4px" }}>
           {formatPrice(product.price)}
         </p>
