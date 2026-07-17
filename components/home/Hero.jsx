@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import gsap from "gsap";
 
 const slides = [
   {
@@ -32,6 +33,9 @@ const slides = [
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
+  const tagRef = useRef(null);
+  const titleRef = useRef(null);
+  const btnRef = useRef(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -39,6 +43,29 @@ export default function Hero() {
     }, 4500);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.fromTo(
+      tagRef.current,
+      { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+    )
+      .fromTo(
+        titleRef.current,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+        "-=0.25"
+      )
+      .fromTo(
+        btnRef.current,
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+        "-=0.3"
+      );
+
+    return () => tl.kill();
+  }, [current]);
 
   return (
     <section
@@ -66,36 +93,43 @@ export default function Hero() {
             transition: "opacity 1s ease",
           }}
         >
-          <div>
-            <p style={{ letterSpacing: "3px", fontSize: "13px", marginBottom: "16px" }}>
-              {slide.tag}
-            </p>
-            <h1
-              style={{
-                fontSize: "clamp(32px, 6vw, 56px)",
-                fontWeight: 700,
-                marginBottom: "20px",
-                maxWidth: "700px",
-              }}
-            >
-              {slide.title}
-            </h1>
-            <Link
-              href="/products"
-              style={{
-                display: "inline-block",
-                background: "#fff",
-                color: "#111",
-                padding: "14px 32px",
-                borderRadius: "4px",
-                textDecoration: "none",
-                fontWeight: 600,
-                fontSize: "14px",
-              }}
-            >
-              Shop the Collection
-            </Link>
-          </div>
+          {index === current && (
+            <div>
+              <p
+                ref={tagRef}
+                style={{ letterSpacing: "3px", fontSize: "13px", marginBottom: "16px" }}
+              >
+                {slide.tag}
+              </p>
+              <h1
+                ref={titleRef}
+                style={{
+                  fontSize: "clamp(32px, 6vw, 56px)",
+                  fontWeight: 700,
+                  marginBottom: "20px",
+                  maxWidth: "700px",
+                }}
+              >
+                {slide.title}
+              </h1>
+              <Link
+                ref={btnRef}
+                href="/products"
+                style={{
+                  display: "inline-block",
+                  background: "#fff",
+                  color: "#111",
+                  padding: "14px 32px",
+                  borderRadius: "4px",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                }}
+              >
+                Shop the Collection
+              </Link>
+            </div>
+          )}
         </div>
       ))}
 
