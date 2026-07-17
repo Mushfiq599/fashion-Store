@@ -1,4 +1,3 @@
-// components/cart/CartSummary.jsx
 "use client";
 
 import { formatPrice } from "@/lib/format";
@@ -56,7 +55,7 @@ export default function CartSummary({ total }) {
           padding: "14px",
           borderRadius: "6px",
           border: "none",
-          background: "#111",
+          background: "var(--accent)",
           color: "#fff",
           fontSize: "14px",
           fontWeight: 600,

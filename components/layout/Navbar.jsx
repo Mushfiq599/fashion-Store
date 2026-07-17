@@ -5,6 +5,7 @@ import { FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useCart } from "@/context/CartContext";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 
 export default function Navbar() {
   const { itemCount } = useCart();
@@ -58,7 +59,7 @@ export default function Navbar() {
             fontSize: "22px",
             fontWeight: 700,
             letterSpacing: "-0.5px",
-            color: "#111",
+            color: "var(--accent)",
             textDecoration: "none",
           }}
         >
@@ -69,7 +70,7 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "28px",
+            gap: "24px",
           }}
           className="desktop-nav"
         >
@@ -89,7 +90,7 @@ export default function Navbar() {
                   position: "absolute",
                   top: "-8px",
                   right: "-10px",
-                  background: "#111",
+                  background: "var(--accent)",
                   color: "#fff",
                   borderRadius: "50%",
                   width: "18px",
@@ -104,6 +105,7 @@ export default function Navbar() {
               </span>
             )}
           </Link>
+          <ThemeSwitcher />
         </nav>
 
         <button
@@ -136,6 +138,7 @@ export default function Navbar() {
           <Link href="/cart" onClick={() => setMenuOpen(false)} style={navLinkStyle}>
             Cart ({itemCount})
           </Link>
+          <ThemeSwitcher />
         </div>
       )}
     </header>

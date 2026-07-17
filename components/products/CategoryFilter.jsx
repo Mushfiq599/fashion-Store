@@ -21,8 +21,8 @@ export default function CategoryFilter({ categories, active, onChange }) {
             style={{
               padding: "8px 18px",
               borderRadius: "20px",
-              border: isActive ? "1px solid #111" : "1px solid #ddd",
-              background: isActive ? "#111" : "#fff",
+              border: isActive ? "1px solid var(--accent)" : "1px solid #ddd",
+              background: isActive ? "var(--accent)" : "#fff",
               color: isActive ? "#fff" : "#333",
               fontSize: "13px",
               cursor: "pointer",

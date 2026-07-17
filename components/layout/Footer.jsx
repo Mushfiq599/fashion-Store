@@ -11,7 +11,6 @@ export default function Footer() {
       }}
     >
       <p>© {new Date().getFullYear()} Threadhouse. All rights reserved.</p>
-      <p style={{ marginTop: "6px" }}>Built as a frontend demo project — no real orders are placed.</p>
     </footer>
   );
 }

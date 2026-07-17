@@ -26,8 +26,10 @@ export default function SizeColorPicker({
                 padding: "8px 16px",
                 borderRadius: "6px",
                 border:
-                  color === selectedColor ? "1px solid #111" : "1px solid #ddd",
-                background: color === selectedColor ? "#111" : "#fff",
+                  color === selectedColor
+                    ? "1px solid var(--accent)"
+                    : "1px solid #ddd",
+                background: color === selectedColor ? "var(--accent)" : "#fff",
                 color: color === selectedColor ? "#fff" : "#333",
                 fontSize: "13px",
                 cursor: "pointer",
@@ -54,8 +56,10 @@ export default function SizeColorPicker({
                 height: "40px",
                 borderRadius: "6px",
                 border:
-                  size === selectedSize ? "1px solid #111" : "1px solid #ddd",
-                background: size === selectedSize ? "#111" : "#fff",
+                  size === selectedSize
+                    ? "1px solid var(--accent)"
+                    : "1px solid #ddd",
+                background: size === selectedSize ? "var(--accent)" : "#fff",
                 color: size === selectedSize ? "#fff" : "#333",
                 fontSize: "13px",
                 cursor: "pointer",

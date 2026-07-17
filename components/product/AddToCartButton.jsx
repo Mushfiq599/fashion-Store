@@ -42,7 +42,7 @@ export default function AddToCartButton({ product, size, color }) {
         padding: "14px",
         borderRadius: "6px",
         border: "none",
-        background: added ? "#2e7d32" : "#111",
+        background: added ? "#2e7d32" : "var(--accent)",
         color: "#fff",
         fontSize: "14px",
         fontWeight: 600,

@@ -20,7 +20,7 @@ export default function NewsTicker() {
           display: "flex",
           alignItems: "center",
           gap: "6px",
-          background: "#c0392b",
+          background: "var(--accent)",
           padding: "10px 18px",
           fontSize: "13px",
           fontWeight: 700,

@@ -34,8 +34,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
             width: "36px",
             height: "36px",
             borderRadius: "6px",
-            border: page === currentPage ? "1px solid #111" : "1px solid #ddd",
-            background: page === currentPage ? "#111" : "#fff",
+            border:
+              page === currentPage ? "1px solid var(--accent)" : "1px solid #ddd",
+            background: page === currentPage ? "var(--accent)" : "#fff",
             color: page === currentPage ? "#fff" : "#333",
             fontSize: "13px",
             cursor: "pointer",
