@@ -1,6 +1,24 @@
+"use client";
+
+import { motion, AnimatePresence } from "framer-motion";
 import ProductCard from "./ProductCard";
 import Skeleton from "@/components/ui/Skeleton";
 import EmptyState from "@/components/ui/EmptyState";
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
+  exit: { opacity: 0, y: -10, transition: { duration: 0.2 } },
+};
 
 export default function ProductGrid({ products, loading }) {
   if (loading) {
@@ -23,11 +41,21 @@ export default function ProductGrid({ products, loading }) {
   }
 
   return (
-    <div style={gridStyle}>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={products.map((p) => p.id).join("-")}
+        style={gridStyle}
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+      >
+        {products.map((product) => (
+          <motion.div key={product.id} variants={itemVariants} exit="exit">
+            <ProductCard product={product} />
+          </motion.div>
+        ))}
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
